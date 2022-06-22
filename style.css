@@ -1,0 +1,40 @@
+body {
+    background-image: url('scene.jpg');
+  background-size: contain;
+  text-align: center;
+}
+
+h1 {
+font-family: 'Press Start 2P', cursive;
+font-weight: normal;
+color: white;
+margin-top: 48px;
+}
+
+.gaming {
+width: 800px;
+height: 500px;
+margin: auto;
+background-color: black;
+border-radius: 100px;
+overflow:hidden;
+position:relative;
+}
+
+.arcade{
+width:385px;
+}
+
+video, .menu, iframe{
+width:245px;
+position:absolute;
+top:137px;
+left:278px;
+border-radius:10px;
+}
+
+p{
+color:white;
+font-family:"Roboto Condensed",sans-serif;
+font-size:13px;
+}

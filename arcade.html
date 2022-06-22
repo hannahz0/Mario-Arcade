@@ -1,0 +1,75 @@
+<html>
+    <head>
+      <title>Super mario</title>
+      <link rel='stylesheet' type='text/css' href='style.css'>
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+      <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Roboto+Condensed&display=swap" rel="stylesheet">
+    </head>
+    <body>
+      <h1>Super Mario Bros</h1> 
+      <div class='gaming'>
+        <img src="gamemachine.png" class="arcade">
+        <video src="mario/stage1-1.mp4" autoplay></video>
+        <div class="menu">
+          <p>Press 1 to watch world 1-1</p>
+          <p>Press 2 to watch world 1-2</p>
+          <p>Press 3 to watch world 4-1</p>
+          <p>Press S to watch secret video</p>
+          <p>Press M to listen to music</p>
+          <p>Press 4 to pause and 5 to resume</p>
+        </div>
+   
+        <iframe id="secret" width="245" height="185" src="https://www.youtube.com/embed/A9HV5O8Un6k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        <iframe id="music" width="245" height="185" src="https://www.youtube.com/embed/g8NVwN0_mks" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        
+      </div>
+      <script>
+        
+        function showMenu(){
+          $("iframe").hide();
+          $("video")[0].pause();
+          $("video").hide();
+          $(".menu").show();
+        }
+        
+        showMenu();
+        
+        function start(keyEvent){
+          $("video").show();
+          $(".menu").hide();
+          var key = keyEvent.charCode;
+          // alert(key);
+          if(key == 49){
+            $("video").attr("src","mario/stage1-1.mp4");
+            $("video")[0].play();
+            $("iframe").hide();
+          } else if(key == 50){
+            $("video").attr("src","mario/stage1-2.mp4");
+            $("video")[0].play();
+            $("iframe").hide();
+          } else if(key == 51){
+            $("video").attr("src","mario/stage4-1.mp4");
+            $("video")[0].play();
+            $("iframe").hide();
+          } else if(key == 115){
+            $("video").hide();
+            $("#secret").show();
+            $("video")[0].pause();
+          } else if(key == 109){
+            $("video").hide();
+            $("video")[0].pause();
+            $("#music").show();
+          } else if(key == 52){
+            $("video")[0].pause();
+          } else if(key == 53){
+            $("video")[0].play();
+          }
+        }
+        
+        $("body").keypress(start);
+  
+  
+      </script>
+    </body>
+  </html>
